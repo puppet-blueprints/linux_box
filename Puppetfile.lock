@@ -1,0 +1,16 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    puppetlabs/stdlib (4.1.0)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-ntp.git
+  ref: master
+  sha: c6d341fe11c797006b8951eeb25b66d2f30c2cc7
+  specs:
+    ntp (3.0.2)
+      puppetlabs/stdlib (>= 0.1.6)
+
+DEPENDENCIES
+  ntp (>= 0)
+
