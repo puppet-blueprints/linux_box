@@ -54,12 +54,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # share the host's /media to the guest for sections
   #config.vm.synced_folder "/media", "/media/host"
+
+  # install latest puppet
+  config.vm.provision :shell, :inline => "gem install puppet --no-ri --no-rdoc"
   
   # provisioning with puppet apply
   config.vm.provision "puppet" do |puppet|
-    #puppet.module_path = 'modules'
-    #puppet.manifests_path = 'manifests'
-    #puppet.manifest_file = 'default.pp'
+    puppet.module_path = 'modules'
+    puppet.manifests_path = 'manifests'
+    puppet.manifest_file = 'default.pp'
     #puppet.hiera_config_path = 'hiera.yaml'
     #puppet.working_directory = '/tmp/vagrant-puppet'
     #puppet.options = '--verbose --debug'
