@@ -1,3 +1,12 @@
+group { 'puppet': ensure  => present }
+
+## if is_vagrant is defined, then we're running under Vagrant
+if $::is_vagrant {
+    $data_center = 'vagrant'
+} else {
+    $data_center = 'default'
+}
+
 stage { 'preinstall':
   before => Stage['main']
 }
@@ -11,6 +20,13 @@ class apt_get_update {
  
 class { 'apt_get_update':
   stage => preinstall
+}
+
+# todo: needs to be converted to hiera
+class { 'sudo': }
+sudo::conf { 'vagrant':
+  priority => 10,
+  content  => "%vagrant ALL=(ALL) NOPASSWD: ALL",
 }
 
 node default {
