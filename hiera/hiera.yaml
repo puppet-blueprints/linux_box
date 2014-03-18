@@ -5,7 +5,9 @@
 :logger: console
 :classes:
  - sudo
-:hierarchy:  
+:hierarchy:
+ - local
+ - "node/%{::fqdn}"
  - %{::data_center}
  - common
 :yaml:
