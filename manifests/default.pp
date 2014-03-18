@@ -22,17 +22,12 @@ class { 'apt_get_update':
   stage => preinstall
 }
 
-# todo: needs to be converted to hiera
-class { 'sudo': }
-sudo::conf { 'vagrant':
-  priority => 10,
-  content  => "%vagrant ALL=(ALL) NOPASSWD: ALL",
-}
+hiera_include('classes')
+create_resources(sudo::conf, hiera('sudo::rules'))
 
 node default {
   include '::apt'
   include '::cron'
   include '::ntp'
   include '::postfix'
-  #include '::sudo'
 }
