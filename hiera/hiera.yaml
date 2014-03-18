@@ -3,6 +3,8 @@
  - json
  - yaml
 :logger: console
+:classes:
+ - sudo
 :hierarchy:  
  - %{::data_center}
  - common
