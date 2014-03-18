@@ -1,0 +1,12 @@
+---
+:backends:
+ - json
+ - yaml
+:logger: console
+:hierarchy:  
+ - %{::data_center}
+ - common
+:yaml:
+  :datadir: /etc/puppet/hiera
+:json:
+  :datadir: /etc/puppet/hiera
