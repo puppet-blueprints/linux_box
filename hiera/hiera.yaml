@@ -8,7 +8,7 @@
 :hierarchy:
  - local
  - "node/%{::fqdn}"
- - %{::data_center}
+ - "%{::data_center}"
  - common
 :yaml:
   :datadir: /etc/puppet/hiera
